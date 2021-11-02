@@ -2,9 +2,9 @@
 Poker Hands Sorter
 
 
-Required Setup
+Setup/Build Info
 
-    -Build with open jdk-16.0.2
+    -Built with open jdk-16.0.2
     -Clone repo
 
 
