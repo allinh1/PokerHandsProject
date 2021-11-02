@@ -21,6 +21,8 @@ Open in Terminal
     -Navigate to project directory
     -execute: 
     java -jar out/artifacts/PokerHands_jar/PokerHands.jar src/test/data/poker-hands.txt 
+    
+    java -jar 'pathto.jarfile' 'pathto.txttestfile'
 
 
 Play/Test One Game in Application
