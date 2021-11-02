@@ -19,8 +19,7 @@ public class CompareRanking implements Comparable<CompareRanking> {
         this.secondCheck = secondCheck == null ? CardValue.ZERO : secondCheck;
         this.thirdCheck = thirdCheck == null ? CardValue.ZERO : thirdCheck;
         List<CardValue> kickerTemp = new ArrayList<>(kicker);
-        Collections.sort(kickerTemp);
-        Collections.reverse(kickerTemp);
+        Collections.sort(kickerTemp, Collections.reverseOrder());
         this.kicker = kicker;
     }
 

@@ -10,9 +10,9 @@ public class Round {
     public final Hand playerOne;
     public final Hand playerTwo;
 
-    public Round(List<Card> firstCards, List<Card> secondCards) {
-        this.playerOne = new Hand(firstCards);
-        this.playerTwo = new Hand(secondCards);
+    public Round(List<Card> playerOneHand, List<Card> playerTwoHand) {
+        this.playerOne = new Hand(playerOneHand);
+        this.playerTwo = new Hand(playerTwoHand);
     }
 
     public boolean playerOneWins() {
