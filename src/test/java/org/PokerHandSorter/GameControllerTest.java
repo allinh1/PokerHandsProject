@@ -22,9 +22,14 @@ public class GameControllerTest {
     }
 
     @Test
+    public void directoryExists() {
+
+    }
+
+    @Test
     public void readDataFile() {
         Path path = Paths.get("src/test/data/poker-hands.txt");
 //        System.out.println(path);
-        BufferedReader testReader = new BufferedReader(path);
+//        BufferedReader testReader = new BufferedReader();
     }
 }
