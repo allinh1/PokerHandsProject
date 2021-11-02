@@ -41,6 +41,24 @@ public class Hand implements Comparable<Hand> {
         return ranking.compareTo(o.ranking);
     }
 
+    private boolean isFlush() {
+        for (int i = 0; i < 4; i++) {
+            if (cardSuit(i) != cardSuit(i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isStraight() {
+        for (int i = 0; i < 4; i++) {
+            if (cardRank(i) + 1 != cardRank(i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private CompareRanking straightRanking() {
         boolean straight = isStraight();
         boolean flush = isFlush();
@@ -65,24 +83,6 @@ public class Hand implements Comparable<Hand> {
         return builder.build();
     }
 
-    private boolean isFlush() {
-        for (int i = 0; i < 4; i++) {
-            if (cardSuit(i) != cardSuit(i + 1)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // checkStraight consecutive numbers. otherwise sum%5 =
-    private boolean isStraight() {
-        for (int i = 0; i < 4; i++) {
-            if (cardRank(i) + 1 != cardRank(i + 1)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     private CardValue cardValue(int cardIndex) {
         return tempCardSorter.get(cardIndex).getValue();
@@ -113,8 +113,8 @@ public class Hand implements Comparable<Hand> {
         private int counter = 0;
         private int pair = 0;
         private boolean triplesFound, quadsFound;
-        private CardValue primary = null;
-        private CardValue secondary = null;
+        private CardValue secondCheck = null;
+        private CardValue thirdCheck = null;
         private List<CardValue> kicker = new ArrayList<>(5);
 
         public void addCard(CardValue newCard) {
@@ -124,6 +124,10 @@ public class Hand implements Comparable<Hand> {
             } else {
                 counter++;
             }
+        }
+
+        private boolean pairComplete(CardValue newCard) {
+            return previous != newCard;
         }
 
         private void handleCardGroup(CardValue newCard) {
@@ -142,10 +146,6 @@ public class Hand implements Comparable<Hand> {
             }
         }
 
-        private boolean pairComplete(CardValue newCard) {
-            return previous != newCard;
-        }
-
         private void resetCounter(CardValue newCard) {
             previous = newCard;
             counter = 1;
@@ -153,22 +153,22 @@ public class Hand implements Comparable<Hand> {
 
         private void handlePair(CardValue current) {
             pair++;
-            if (primary == null) {
-                primary = previous;
+            if (secondCheck == null) {
+                secondCheck = previous;
             } else if (pairHasLowerRanking(current)) {
-                secondary = current;
+                thirdCheck = current;
             } else {
                 demotePrimary();
             }
         }
 
         private boolean pairHasLowerRanking(CardValue current) {
-            return triplesFound || primary.compareTo(current) > 0;
+            return triplesFound || secondCheck.compareTo(current) > 0;
         }
 
         private void demotePrimary() {
-            secondary = primary;
-            primary = previous;
+            thirdCheck = secondCheck;
+            secondCheck = previous;
         }
 
         private void handleTriples(CardValue value) {
@@ -178,7 +178,7 @@ public class Hand implements Comparable<Hand> {
 
         private void handleQuads(CardValue value) {
             quadsFound = true;
-            primary = previous;
+            secondCheck = previous;
         }
 
         private void addKicker() {
@@ -204,7 +204,7 @@ public class Hand implements Comparable<Hand> {
         }
 
         private CompareRanking Rank(CombinationRank rank) {
-            return new CompareRanking(rank, primary, secondary, kicker);
+            return new CompareRanking(rank, secondCheck, thirdCheck, kicker);
         }
     }
 }
