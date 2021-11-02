@@ -2,21 +2,28 @@
 Poker Hands Sorter
 
 
-required setup
-?
+Required Setup
+-Build with open jdk-16.0.2
+-Clone repo
 
 
-open jar
-?
+Method 1 - Run in Application
+-Open project in preferred IDE.
+-Run App.main
 
 
-play one game from application/terminal
-?
+Method 2 - Open in Terminal
+-Navigate to directory
+` java -jar poker-hand-sorter-1.0.jar ./../src/test/resources/fileTest.txt `
 
 
-play all games from .txt file
-?
+Play one game / one pokerLine from application/terminal
+-
 
 
-replacing STDIN file
+//play all games from .txt file
+
+
+
+//replacing STDIN file
 
