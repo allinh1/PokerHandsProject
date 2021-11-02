@@ -20,6 +20,6 @@ Open in Terminal
 
     -Navigate to directory
     -execute: 
-    java -jar PokerHands.jar src/test/data/poker-hands.txt 
+    java -jar out/artifacts/PokerHands_jar/PokerHands.jar src/test/data/poker-hands.txt 
 
 
