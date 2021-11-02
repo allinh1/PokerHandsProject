@@ -91,7 +91,7 @@ public class Hand implements Comparable<Hand> {
     }
 
     private List<CardValue> getKickers() {
-        List<CardValue> kickers = new LinkedList<CardValue>();
+        List<CardValue> kickers = new LinkedList<>();
         for (int i = 0; i < 4; i++) {
             kickers.add(cardValue(i));
         }
@@ -105,7 +105,7 @@ public class Hand implements Comparable<Hand> {
         private boolean triplesFound, quadsFound;
         private CardValue secondCheck = null;
         private CardValue thirdCheck = null;
-        private List<CardValue> kicker = new ArrayList<>(5);
+        private final List<CardValue> kicker = new ArrayList<>(5);
 
         public void addCard(CardValue newCard) {
             if (pairComplete(newCard)) {
@@ -148,7 +148,7 @@ public class Hand implements Comparable<Hand> {
             } else if (pairHasLowerRanking(current)) {
                 thirdCheck = current;
             } else {
-                demotePrimary();
+                demoteSecondCheck();
             }
         }
 
@@ -156,17 +156,17 @@ public class Hand implements Comparable<Hand> {
             return triplesFound || secondCheck.compareTo(current) > 0;
         }
 
-        private void demotePrimary() {
+        private void demoteSecondCheck() {
             thirdCheck = secondCheck;
             secondCheck = previous;
         }
 
-        private void handleTriples(CardValue value) {
+        private void handleTriples(CardValue newCard) {
             triplesFound = true;
-            demotePrimary();
+            demoteSecondCheck();
         }
 
-        private void handleQuads(CardValue value) {
+        private void handleQuads(CardValue newCard) {
             quadsFound = true;
             secondCheck = previous;
         }
