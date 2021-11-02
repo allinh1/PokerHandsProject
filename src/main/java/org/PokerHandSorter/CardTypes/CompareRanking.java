@@ -9,13 +9,13 @@ import java.util.List;
 
 public class CompareRanking implements Comparable<CompareRanking> {
 
-    private final CombinationRank rankCheck;
+    private final CombinationRank rank;
     private final CardValue secondCheck;
     private final CardValue thirdCheck;
     private final List<CardValue> kicker;
 
-    public CompareRanking(CombinationRank rankCheck, CardValue secondCheck, CardValue thirdCheck, List<CardValue> kicker) {
-        this.rankCheck = rankCheck;
+    public CompareRanking(CombinationRank rank, CardValue secondCheck, CardValue thirdCheck, List<CardValue> kicker) {
+        this.rank = rank;
         this.secondCheck = secondCheck == null ? CardValue.ZERO : secondCheck;
         this.thirdCheck = thirdCheck == null ? CardValue.ZERO : thirdCheck;
         List<CardValue> kickerTemp = new ArrayList<>(kicker);
@@ -23,25 +23,10 @@ public class CompareRanking implements Comparable<CompareRanking> {
         this.kicker = kicker;
     }
 
-//    public CombinationRank getRank() {
-//        return rank;
-//    }
-//
-//    public CardValue getFirstCheck() {
-//        return firstCheck;
-//    }
-//
-//    public CardValue getSecondCheck() {
-//        return secondCheck;
-//    }
-//
-//    public List<CardValue> getKicker() {
-//        return kicker;
-//    }
-
     @Override
     public int compareTo(CompareRanking o) {
-        int compareTo = rankCheck.compareTo(o.rankCheck);
+        int compareTo = rank.compareTo(o.rank);
+
         if (compareTo != 0) return compareTo;
 
         compareTo = secondCheck.compareTo(o.secondCheck);
@@ -61,7 +46,7 @@ public class CompareRanking implements Comparable<CompareRanking> {
     public String toString() {
         return String.format(
                 "[%s,%s,%s,%s]",
-                rankCheck, secondCheck, thirdCheck, kicker);
+                rank, secondCheck, thirdCheck, kicker);
     }
 }
 

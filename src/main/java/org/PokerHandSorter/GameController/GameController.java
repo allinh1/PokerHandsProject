@@ -43,7 +43,7 @@ public class GameController {
 
     public void playAllGames() throws IOException {
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/PokerHandSorter/Main/poker-hands.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("src/test/data/poker-hands.txt"));
 
         String pokerLines = null;
 

@@ -18,9 +18,4 @@ public enum CombinationRank {
     CombinationRank(int rank) {
         this.rank = rank;
     }
-
-//    // public method to return int to compare rank of one combination to another
-//    public int printRank() {
-//        return rank;
-//    }
 }

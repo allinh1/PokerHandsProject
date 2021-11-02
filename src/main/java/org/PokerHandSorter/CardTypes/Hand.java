@@ -28,17 +28,17 @@ public class Hand implements Comparable<Hand> {
         }
     }
 
-//    public List<Card> getCards() {
-//        return cards;
-//    }
-//
-//    public ValueRanking getRanking() {
-//        return ranking;
-//    }
-
     @Override
     public int compareTo(Hand o) {
         return ranking.compareTo(o.ranking);
+    }
+
+    private CardValue cardValue(int cardIndex) {
+        return tempCardSorter.get(cardIndex).getValue();
+    }
+
+    private CardSuit cardSuit(int cardIndex) {
+        return tempCardSorter.get(cardIndex).getSuit();
     }
 
     private boolean isFlush() {
@@ -57,6 +57,10 @@ public class Hand implements Comparable<Hand> {
             }
         }
         return true;
+    }
+
+    private CompareRanking makeRanking(CombinationRank rank) {
+        return new CompareRanking(rank, cardValue(4), (CardValue) null, getKickers());
     }
 
     private CompareRanking straightRanking() {
@@ -79,25 +83,11 @@ public class Hand implements Comparable<Hand> {
         for (Card c : tempCardSorter) {
             builder.addCard(c.getValue());
         }
-
         return builder.build();
-    }
-
-
-    private CardValue cardValue(int cardIndex) {
-        return tempCardSorter.get(cardIndex).getValue();
-    }
-
-    private CardSuit cardSuit(int cardIndex) {
-        return tempCardSorter.get(cardIndex).getSuit();
     }
 
     private int cardRank(int cardIndex) {
         return cardValue(cardIndex).ordinal();
-    }
-
-    private CompareRanking makeRanking(CombinationRank type) {
-        return new CompareRanking(type, cardValue(4), (CardValue) null, getKickers());
     }
 
     private List<CardValue> getKickers() {
