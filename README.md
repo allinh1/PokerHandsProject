@@ -18,8 +18,11 @@ Run in Application
 Method 2 - 
 Open in Terminal
 
-    -Navigate to directory
+    -Navigate to project directory
     -execute: 
     java -jar out/artifacts/PokerHands_jar/PokerHands.jar src/test/data/poker-hands.txt 
 
 
+Play/Test One Game in Application
+
+    -Uncomment line 15 'test.playOneGame();' in 'App.class'
