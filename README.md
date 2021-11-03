@@ -30,16 +30,21 @@ Play/Test One Game in Application
     -Uncomment line 15 'test.playOneGame();' in 'App.class'
 
 
-Todo
--Unit Testing
--Documentation
--Reduce code duplication 
--Replace magic numbers
 
-Learning Points to consider
--
+Todo:
 
-Things Learnt
--Comparable Interface / CompareTo method / Custom Object comparison
--Mapping of Enums
--Reading Input File
+    -Unit Testing
+    -Documentation
+    -Reduce code duplication 
+    -Replace magic numbers
+
+Learning Points to consider:
+
+    -
+
+Things Learnt:
+
+    -Comparable Interface / CompareTo method / Custom Object comparison
+    -Mapping of Enums
+    -Reading Input File
+    -'clean' structure
