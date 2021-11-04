@@ -41,9 +41,18 @@ public class GameController {
         results();
     }
 
-    public void playAllGames() throws IOException {
+    public void playManyGames() throws IOException {
 
         BufferedReader reader = new BufferedReader(new FileReader("src/test/data/poker-hands.txt"));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to play: ");
+        System.out.println("1: One Game (enter 1)");
+        System.out.println("2: Many Games from test file (enter 2)");
+
+        String userInput = scanner.nextLine();
+
+        if (userInput.)
+
 
         String pokerLines = null;
 
@@ -62,6 +71,7 @@ public class GameController {
             }
         }
         results();
+
     }
 
     public static void results() {
