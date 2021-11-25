@@ -51,9 +51,6 @@ public class GameController {
 
         String userInput = scanner.nextLine();
 
-        if (userInput.)
-
-
         String pokerLines = null;
 
         while ((pokerLines = reader.readLine()) != null) {

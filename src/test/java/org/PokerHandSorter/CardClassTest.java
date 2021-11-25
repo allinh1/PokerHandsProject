@@ -5,6 +5,8 @@ import org.PokerHandSorter.Enums.CardSuit;
 import org.PokerHandSorter.Enums.CardValue;
 import org.junit.Test;
 
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CardClassTest {
@@ -25,6 +27,7 @@ public class CardClassTest {
 
     @Test
     public void testCardToString() {
-
+        Card testCard = new Card("AH");
+        assertEquals("A_H", testCard.toString());
     }
 }
