@@ -13,7 +13,7 @@ public class App {
 
         GameController test = new GameController();
 //        test.playOneGame();
-        test.playAllGames();
+        test.playManyGames();
 
     }
 }
