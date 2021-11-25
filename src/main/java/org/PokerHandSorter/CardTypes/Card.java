@@ -31,6 +31,6 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
-        return String.format("%s_%s", value.getChar(), suit.getChar());
+        return String.format("%s%s", value.getChar(), suit.getChar());
     }
 }

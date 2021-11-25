@@ -47,11 +47,4 @@ public class RoundTest {
         Round r = new Round(playerOne, playerTwo);
         r.playerOneWins();
     }
-
-    @Test
-    public void testCardCreation() {
-        Card card = new Card("AH");
-
-        // assertions to make sure the getters are correct
-    }
 }

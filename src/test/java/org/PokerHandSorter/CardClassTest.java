@@ -15,14 +15,12 @@ public class CardClassTest {
     public void testGetCardValue() {
         Card testCard = new Card("AH");
         assertTrue(testCard.getValue() == CardValue.ACE);
-
     }
 
     @Test
     public void testGetCardSuit() {
-        Card testCard = new Card("AH");
-        assertTrue(testCard.getSuit() == CardSuit.HEARTS);
-
+        Card testCard = new Card("AS");
+        assertTrue(testCard.getSuit() == CardSuit.SPADES);
     }
 
     @Test

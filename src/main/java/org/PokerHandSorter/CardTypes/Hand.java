@@ -15,7 +15,7 @@ public class Hand implements Comparable<Hand> {
 
     public Hand(List<Card> cards) {
         List<Card> temp = new ArrayList<>(cards);
-//        temp.add(new Card(CardValue.ZERO, CardSuit.NULL));
+        temp.add(new Card(CardValue.ZERO, CardSuit.NULL));
         Collections.sort(temp);
         this.tempCardSorter = Collections.unmodifiableList(temp);
 
