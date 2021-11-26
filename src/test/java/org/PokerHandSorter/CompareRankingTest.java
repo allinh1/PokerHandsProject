@@ -1,8 +1,6 @@
 package org.PokerHandSorter;
 
-import org.PokerHandSorter.CardTypes.Card;
 import org.PokerHandSorter.CardTypes.CompareRanking;
-import org.PokerHandSorter.CardTypes.Hand;
 import org.PokerHandSorter.Enums.CardValue;
 import org.PokerHandSorter.Enums.CombinationRank;
 import org.junit.Test;
@@ -11,15 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CompareRankingTest {
 
-/**
- *
- * compareTo method should return 0 when first hand has same ranking as second hand.
- *
- * */
+/*
+ * compareTo method should return 0 when first hand has same ranking as second hand ranking.
+ */
 
     @Test
     public void testEqualComparison()   {
@@ -34,6 +29,12 @@ public class CompareRankingTest {
 
     }
 
+/*
+ *
+ * compareTo method should return positive integer when first hand has higher ranking than second hand
+ *
+ * */
+
     @Test
     public void testStraightVsPairRankings() {
         List<CardValue> kicker1 = new ArrayList<>();
@@ -44,15 +45,7 @@ public class CompareRankingTest {
         CompareRanking testHand2 = new CompareRanking(CombinationRank.PAIR, CardValue.ZERO,CardValue.ZERO, kicker2);
 
         assertEquals(3, testHand.compareTo(testHand2), "Hand 1 should be win");
-
     }
-
-/**
- *
- * compareTo method should return positive integer when first hand has higher ranking than second
- *
- * */
-
 
     @Test
     public void testSameHandDifferentKicker() {
@@ -65,10 +58,9 @@ public class CompareRankingTest {
         CompareRanking testHand2 = new CompareRanking(CombinationRank.PAIR, CardValue.ZERO,CardValue.ZERO, kicker2);
 
         assertEquals(4, testHand.compareTo(testHand2), "Hand 1 should be win with higher kicker");
-
     }
 
-/**
+/*
  *
  * compareTo method should return negative integer when first hand has lower ranking than second
  *

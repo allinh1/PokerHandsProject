@@ -5,6 +5,8 @@ import org.PokerHandSorter.Enums.CombinationRank;
 
 //import java.util.ArrayList;
 //import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CompareRanking implements Comparable<CompareRanking> {
@@ -18,7 +20,7 @@ public class CompareRanking implements Comparable<CompareRanking> {
         this.rank = rank;
         this.secondCheck = secondCheck == null ? CardValue.ZERO : secondCheck;
         this.thirdCheck = thirdCheck == null ? CardValue.ZERO : thirdCheck;
-//        List<CardValue> kickerTemp = new ArrayList<>(kicker);
+        List<CardValue> kickerTemp = new ArrayList<>(kicker);
 //        Collections.sort(kickerTemp, Collections.reverseOrder());
         this.kicker = kicker;
     }
